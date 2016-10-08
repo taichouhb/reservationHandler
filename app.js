@@ -4,7 +4,7 @@ var express = require('express');
 var flash = require('connect-flash');
 var handlebars = require('express-handlebars');
 var rSDK = require('robin-js-sdk');
-var robin = new rSDK(RobinTokin);
+
 var db = require('./lib/database.js'); // Database library
 
 var app = express();
@@ -25,7 +25,7 @@ app.use('/user', require('./routes/user-routes')); // Separate user routes
 
 var RobinTokin = 'PdYyTDkdzAbVIILb2wskbqXtYfR5bpZxbX7waYTiXJFPj24cfqIIPJfLQGqjalpBYKFQTZn7S1BK5zD6WUpK9qj3sXGMxJ3lrhbIgtpIdi1g0pNUMCVKmGidkb9wXQTo';
 ////// Start User-Defined Routes
-
+var robin = new rSDK(RobinTokin);
 // Root directory that redirects to the home page
 app.get('/', (req, res) => {
   res.redirect('users');
@@ -37,11 +37,8 @@ app.get('/users', (req, res) => {
 
   robin.api.spaces.presence.get(16008).then(function (response) {
     var users = response.getData();
-
-    console.log(users);
-
     res.render('users', {
-      users : users,
+      user : users,
       message : "Customers Present"
     });
   });
