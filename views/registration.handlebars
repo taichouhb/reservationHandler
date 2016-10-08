@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+  <div id="page">
+    <div class="header">
+    <a href="#menu"></a>
+      Zembo
+    </div>
+  </div>
+
+  <div id="cont">
+    <div id="tp">
+      <div id="head">
+        <ul id="logo">
+          <center><p1><b>{{title}}</b></p1></center>
+        </ul>
+      </div>
+
+      <div id="panel1">
+        <ul id="test">
+          <center><img src="/imgs/logo.png" width="350px" height="210px"></center>
+          <center><p4><b>Create an account. It's free!</b></p4></center>
+          </div>
+        </ul>
+      </div>
+
+      <div id="panel1">
+        <center>
+          <div id="form">
+            <p>{{message}}</p>
+            <form method="post" action="/user/register" enctype="multipart/form-data">
+              Select an image to upload:
+              <input type="file" name="profile"> <br>
+
+              Select your year:
+              <select name="year">
+                <option value="freshman">Freshman</option>
+                <option value="sophomore">Sophomore</option>
+                <option value="junior">Junior</option>
+                <option value="senior">Senior</option>
+              </select><br>
+
+              <input type="text" name="fname" placeholder="first name" required><br> 
+              <input type="text" name="lname" placeholder="last name" required><br>
+              <input type="text" name="major" placeholder="major/concentration" required><br>  
+              <input type="text" name="email" placeholder="email" required><br> 
+              <input type="password" name="pass" placeholder="password" required><br>
+              <input type="text" name="spireid" placeholder="spire id" required><br>
+              <input type="date" name="dob" required><br>
+              <button class="btn" type="submit">Sign Up</button>
+            </form>
+          </div>
+        </center>
+      </div>
+    </div>
+  </div>
+  
+</html>

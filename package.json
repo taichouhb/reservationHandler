@@ -1,12 +1,13 @@
 {
-	"name":"reservaionHandler",
-	"main":"server.js",
-	"dependencies":{
-		"express" : "~4.5.1",
-		"mongoose" : "~3.8.0",
-		"body-parser" : "~1.4.2"
-	}
-
-
-
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "connect-flash": "^0.1.1",
+    "express": "^4.13.3",
+    "express-handlebars": "^2.0.1",
+    "multer": "^1.1.0",
+    "nodemon": "^1.7.3",
+    "mongoose" : "~3.8.0",
+    "robin-js-sdk" : "^0.5.1",
+    "faye" : "1.0.1"
+  }
 }

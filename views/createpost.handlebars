@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/group.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  </head>
+
+  <div id="page">
+    <div class="header">
+      <a href="#menu"></a>
+        Zembo
+    </div>
+  </div>
+  
+  <div class="content"></div>
+    <div id="cont">
+      <div id="tp">
+        <center><p>{{message}}</p></center>
+
+        <!-- OPEN FORM -->
+        <form method="post" id="schedule" action="/group/createPost?classid={{classid}}"> 
+          <label><b>{{title}}</b></label><br>
+          <input type="text" id="inputholder" name="title" placeholder="post title: Eg - 'Does anyone know if we have class tomorrow?'"><br>
+          <input type="text" id="inputholder" name="content" placeholder="content: Eg - 'I spoke to Tim and he told me he's going to be out of town for most of this week. He hasn't confirmed that class is cancelled tomorrow though. Any updates?"><br>
+          <label id="basic">Post as:</label>
+          <select name="anonymity">
+            <option value="Anonymous">Anonymous</option>
+            <option value="{{fname}} {{lname}}">{{fname}}</option>
+          </select><br><br>
+          <button id="createbutton">Create</button>
+        </form> <!-- CLOSE FORM -->
+      </div>
+    </div>
+  </div>
+
+  <ul id="goback"><li><a style="text-decoration: none" href="/class?classid={{classid}}"><b><i class="fa fa-long-arrow-left"></i> back</b></a></li></ul>
+</html>

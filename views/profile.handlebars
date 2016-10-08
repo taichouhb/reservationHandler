@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="/css/profile.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  </head>
+
+  <!-- NAVBAR -->
+  <div id="page">
+    <div class="header">
+      <a href="#menu"></a>
+        Zembo
+    </div>
+  </div>
+  <!-- CLOSE NAV -->
+
+  <!-- START BODY -->
+  <div id="tp">
+    {{#each data}}
+    <!-- PROFILE OPEN -->
+    <div id="profile">
+      <!-- OUTER CONTAINER OPEN -->
+        <div id="container">
+          <!-- INNER OPEN -->
+          <div id="inner">
+            <!-- PICTURE OPEN -->
+             <div id="image">
+                <img id="picture" src="/imgs/users/{{this.spireid}}.jpg" alt="{{this.fname}}">
+             </div> <!-- CLOSE PICTURE -->
+             <!-- PROFILE DETAILS -->
+             <div id="details">
+                <ul id="userInfo">
+                  <b><li>{{this.fname}} {{this.lname}}</li>
+                  <li>{{this.major}}</li>
+                  <li>{{this.year}}</li>
+                  <li>Birthdate: {{this.dob}}</li></b>
+                </ul>
+             </div> <!-- CLOSE DETAILS -->
+          </div> <!-- CLOSE INNER -->
+        </div> <!-- CLOSE CONTAINER -->
+        <!-- OPEN ABOUT -->
+        <div>
+          <ul id="about">
+            
+          </ul>
+        </div> <!-- CLOSE ABOUT -->
+    </div> <!-- CLOSE PROFILE -->
+  {{/each}}
+  </div>
+  <ul id="goback"><li><a style="text-decoration: none" href="/index"><b><i class="fa fa-long-arrow-left"></i> back</b></a></li></ul>
+  <!-- END BODY -->
+</html>

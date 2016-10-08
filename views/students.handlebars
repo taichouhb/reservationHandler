@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  </head>
+
+  <div id="page">
+    <div class="header">
+      <a href="#menu"></a>
+        Zembo
+    </div>
+  </div>
+
+  <div id="banner">
+    {{#each classData}}
+      All students in {{num}}
+    {{/each}}
+  </div>
+
+  {{#each classData}}
+    {{#each students}}
+      <a href="/user/profile?spireid={{this}}"><img id="drawerImage" src="/imgs/users/{{this}}.jpg"></a>
+    {{/each}}
+  {{/each}}
+
+  <ul id="goback"><li><a style="text-decoration: none" href="/class?classid={{classid}}"><b><i class="fa fa-long-arrow-left"></i> back</b></a></li></ul>
+</html>

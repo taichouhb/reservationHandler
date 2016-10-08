@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/group.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/post.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <script>
+      $(document).ready(function(){
+      $("#response").click(function(){
+        $("#responsebox").slideToggle("fast");
+      });
+    });
+    </script>
+  </head>
+
+  <div id="page">
+    <div class="header">
+      <a href="#menu"></a>
+        Zembo
+    </div>
+  </div>
+
+  <div id="cont">
+    <ul id="nav">
+        <li><a href="/group/createPost?classid={{classid}}">+ Post</a></li>
+        <li><a href="/group/createEvent?classid={{classid}}">+ Event</a></li>
+        <p1>{{data.title}} - <i>{{data.name}}</i></p1>
+    </ul> 
+
+  <ul id="postdata">
+    <li><a><b>{{data.title}}</b> posted on {{data.date}} <b><i id="nameRight">{{data.name}}</i></b></a></li>
+    <li>
+      <a>
+        <i>"{{data.content}}"</i>
+      <form id="flagPost" method="post" action="/group/flagPost?pid={{pid}}&ri={{data.spireid}}">
+        <input type="submit" value="Report">
+      </form>
+      </a>
+  </li>
+  </ul>
+
+  <ul id="reply">
+    <li><center><a id="response"><b>Reply</b></a></center></li>
+  </ul>
+
+  <div id="responsebox">
+    <form method="post" action="/group/postComment?classid={{data.cid}}&pid={{data.pid}}"> 
+      <textarea id="textbox" rows="4" name="content"></textarea>
+        <center> 
+        <label id="basic">Post as:</label>
+        <select class="anonymity" name="anonymity">
+            <option value="Anonymous">Anonymous</option>
+            <option value="{{fname}} {{lname}}">{{fname}}</option>
+        </select>
+        </center>
+      <center><button id="createbutton">Reply</button></center>
+    </form>
+  </div>
+
+
+  <ul id="comments">
+    {{#each comments}}
+    <li><a>
+      <b>{{this.name}}</b><br> "{{this.content}}"
+      <form id="flagComment" method="post" action="/group/flagComment?cid={{this.cid}}&ri={{this.spireid}}">
+        <input id="" type="submit" value="Report">
+      </form>
+    </a></li>
+    {{/each}}
+  </ul>
+  </div>
+
+  <ul id="goback"><li><a style="text-decoration: none" href="/class?classid={{classid}}"><b><i class="fa fa-long-arrow-left"></i> back</b></a></li></ul>
+</html>

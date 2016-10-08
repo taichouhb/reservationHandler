@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/adminControls.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  </head>
+  {{message}}
+
+  {{#each users}}
+  <div>
+    {{this.name}}
+  </div>
+  {{/each}}
+
+  <!-- <div id="cont">
+    <div id="tp">
+      <table class="linkText">    
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Email
+          </th>
+          <th>
+            ID
+          </th>
+          
+        </tr>
+        {{#each users}}
+        <tr>
+          <td>
+            {{this.name}} 
+          </td>
+          <td>
+            {{this.primary_email}}
+          </td>
+          <td>
+            {{this.id}}
+          </td>
+        </tr>
+        {{/each}}
+      </table>
+    </div>
+  </div> -->
+</html>
