@@ -3,18 +3,22 @@
   <head>
     <link rel="stylesheet" type="text/css" href="/css/adminControls.css" />
   </head>
-  <div style="col-lg-6">
+  <div style="col-sm-6">
   {{message}}
   </div>
-  
-  <!-- {{#each user}}
+
+  <div style="col-sm-6">
+    <button> <a style="text-decoration:none;" href='makeReservation'>Make a Reservation</a></button>
+  </div>
+
+  {{#each user}}
   <div>
     {{this.user.name}}
   </div>
   <div>
   {{this.user.id}}
   </div>
-  {{/each}} -->
+  {{/each}}
 
 
 
@@ -26,11 +30,11 @@
           <th>Email</th>
           <th>ID</th>    
         </tr>
-        {{#each users}}
+        {{#each user}}
         <tr>
           
           <td>{{this.user.name}}</td>
-          <td>{{this.user.primary_email}}</td>
+          <td>{{this.user.primary_email.email}}</td>
           <td>{{this.user.id}} </td>
           
         </tr>

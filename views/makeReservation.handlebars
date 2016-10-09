@@ -1,0 +1,15 @@
+<div> List of Reservations:  </div>
+{{message}}
+{{#each reservations}}
+<div>Name: {{this.name}}</div>
+{{/each}}
+
+<div> Make a Reservation! </div>
+
+<form method="post" action="/newReservation?firstname={{firstname}}&email={{email}}">
+  First name:
+  <input type="text" name="firstname"><br>
+  Email:
+  <input type="text" name="email">
+  <input type="submit" value="Submit">
+</form>

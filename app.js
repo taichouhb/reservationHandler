@@ -5,7 +5,7 @@ var flash = require('connect-flash');
 var handlebars = require('express-handlebars');
 var rSDK = require('robin-js-sdk');
 
-var db = require('./lib/database.js'); // Database library
+//var db = require('./lib/database.js'); // Database library
 
 var app = express();
 
@@ -21,11 +21,11 @@ app.use(flash());
 // Body Parser
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use('/user', require('./routes/user-routes')); // Separate user routes
 
 var RobinTokin = 'PdYyTDkdzAbVIILb2wskbqXtYfR5bpZxbX7waYTiXJFPj24cfqIIPJfLQGqjalpBYKFQTZn7S1BK5zD6WUpK9qj3sXGMxJ3lrhbIgtpIdi1g0pNUMCVKmGidkb9wXQTo';
 ////// Start User-Defined Routes
 var robin = new rSDK(RobinTokin);
+var reserves = [];
 // Root directory that redirects to the home page
 app.get('/', (req, res) => {
   res.redirect('users');
@@ -42,10 +42,42 @@ app.get('/users', (req, res) => {
       message : "Customers Present"
     });
   });
-
-  
-  
 });
+
+app.get('/makeReservation', (req, res) => {
+  res.render('makeReservation', {
+    reservations : reserves
+  });
+});
+
+
+
+app.post('/newReservation', (req, res) =>{
+  var form = req.body;
+  var firstname = form.firstname;
+  var email = form.email;
+  var tup = {"name" : firstname, "email" : email};
+ 
+  for (i in reserves){
+    if(i[1] == email){
+
+      res.render('makeReservation', {
+        reservations : reserves,
+        message : "Your Account has already Reserved a spot, no reservations made!"
+      });
+      
+     }
+  }
+  reserves.push(tup);
+  ///res.redirect('/makeReservation');
+  res.render(
+    'makeReservation', {
+      reservations : reserves,
+      message : "Reservation Has been Made succefully"
+    });
+
+});
+
 
 
 app.use(function(req, res, next) {
